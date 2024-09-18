@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.review {
+  @apply p-8;
+}
+
+.review-wrapper {
+  @apply flex items-center;
+}
+
+.review-avatar {
+  @apply h-12 w-12 rounded-full;
+}
+
+.review-left {
+  @apply ml-4;
+}
+
+.review-author {
+  @apply text-sm font-bold text-gray-900;
+}
+
+.review-content {
+  @apply mt-4 space-y-6 text-base italic text-gray-600;
+}
+
+.review-rating {
+  @apply mt-1 flex items-center;
+}
+
+.review-star {
+  @apply h-5 w-5 flex-shrink-0;
+}
