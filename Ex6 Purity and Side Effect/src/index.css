@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.discussions {
+  @apply divide-y p-8 divide-gray-100;
+}
