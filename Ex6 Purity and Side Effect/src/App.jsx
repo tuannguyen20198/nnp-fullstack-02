@@ -1,12 +1,10 @@
 ﻿let count = 0;
 
 export default function Discussions() {
-  let count = [1,2]
-
   return (
     <ul className="discussions">
-      {count.map((count,index) => (
-        <Discussion key={index} count={count} />
+      {[1,2].map((count) => (
+        <Discussion key={count} count={count} />
       ))}
     </ul>
   );
