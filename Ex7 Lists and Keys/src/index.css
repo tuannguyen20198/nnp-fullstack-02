@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.projects-title {
+  @apply text-sm font-medium text-gray-500;
+}
+
+.projects-list {
+  @apply mt-3 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4;
+}
+
+.project-list-item {
+  @apply col-span-1 flex rounded-md shadow-sm;
+}
+
+.project-button {
+  @apply inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
+}
+
+.project-button-wrapper {
+  @apply flex-shrink-0 pr-2;
+}
+
+.project-members {
+  @apply text-gray-500;
+}
+
+.project-link {
+  @apply font-medium text-gray-900 hover:text-gray-600;
+}
+
+.project-initials {
+  @apply flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white;
+}
+
+.project-icon {
+  @apply h-5 w-5;
+}
+
+.project-content {
+  @apply flex-1 truncate px-4 py-2 text-sm;
+}
+
+.project-content-wrapper {
+  @apply flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white;
+}
+
+.projects-wrapper {
+  @apply p-8;
+}
