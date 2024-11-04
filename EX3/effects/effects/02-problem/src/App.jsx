@@ -6,8 +6,10 @@ export default function InputChanges() {
   const [count, setCount] = useState(-1);
 
   useEffect(() => {
-    value ? setCount(prevCount => prevCount + 1) : ""
-  }, [value]);
+    if (value) {
+      setCount((count) => count + 1)
+    }
+  },[value]);
 
   function onChange(event) {
     setValue(event.target.value);
