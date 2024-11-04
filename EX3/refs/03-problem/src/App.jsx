@@ -1,6 +1,14 @@
 import { CheckIcon } from "@heroicons/react/20/solid";
+import { useRef } from "react";
 
 export default function LandingPage() {
+  const inputRef = useRef(null); // Create a ref
+
+  const focusInput = () => {
+    if (inputRef.current) {
+      inputRef.current.focus(); // Focus the input element
+    }
+  };
   return (
     <>
       <div className="relative pt-14">
@@ -28,7 +36,7 @@ export default function LandingPage() {
                 fugiat aliqua.
               </p>
               <div className="mt-10 flex items-center justify-center">
-                <button className="rounded-md bg-indigo-600 px-4 py-3 text-base font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                <button ref={focusInput} className="rounded-md bg-indigo-600 px-4 py-3 text-base font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                   Go to Pricing
                 </button>
               </div>
@@ -96,6 +104,7 @@ export default function LandingPage() {
               <a
                 href="#"
                 className="mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 bg-indigo-600 text-white shadow-sm hover:bg-indigo-500"
+                ref={focusInput}
               >
                 Buy plan
               </a>
