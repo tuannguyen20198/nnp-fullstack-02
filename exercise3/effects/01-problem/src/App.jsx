@@ -5,9 +5,8 @@ export default function Counter() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    document.title = `You clicked ${count} times`
     console.log("After Rendering");
-  },[count]);
+  });
 
   function updateCount() {
     setCount(count + 1);
