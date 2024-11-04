@@ -1,28 +1,31 @@
 import { Switch } from "@headlessui/react";
-import React, { useRef } from "react";
+import React, { useRef,useState } from "react";
 
 export default function Toggle() {
   const toggleRef = useRef(true);
-  const enabled = toggleRef.current;
+  const [, setToggleState] = useState(false);
+
+  const toggleSwitch = () => {
+    toggleRef.current = !toggleRef.current;
+    setToggleState((prev) => !prev);
+    console.log(toggleRef.current);
+  };
 
   return (
     <div className="p-8 flex justify-center">
       <Switch.Group as="div" className="flex items-center">
         <Switch
-          checked={enabled}
-          onChange={() => {
-            toggleRef.current = !toggleRef.current;
-            console.log(!toggleRef.current);
-          }}
+          checked={toggleRef.current}
+          onChange={toggleSwitch}
           className={classNames(
-            enabled ? "bg-indigo-600" : "bg-gray-200",
+            toggleRef.current ? "bg-indigo-600" : "bg-gray-200",
             "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
           )}
         >
           <span
             aria-hidden="true"
             className={classNames(
-              enabled ? "translate-x-5" : "translate-x-0",
+              toggleRef.current ? "translate-x-5" : "translate-x-0",
               "pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
             )}
           />
