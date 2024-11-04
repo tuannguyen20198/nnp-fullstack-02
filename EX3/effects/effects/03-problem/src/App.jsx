@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function App() {
-  const [isOpen, setOpen] = useState(false); // Khởi tạo là false
+  const [isOpen, setOpen] = useState(false);
 
   function openModal() {
     setOpen(true);
