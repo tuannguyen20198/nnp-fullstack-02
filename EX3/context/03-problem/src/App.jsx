@@ -12,7 +12,12 @@ function useUserData() {
 const UserContext = createContext(false);
 
 export default function App() {
-  return <ProfilePage />;
+  const userData = useUserData();
+  return (
+    <UserContext.Provider value={userData}>
+      <ProfilePage />
+    </UserContext.Provider>
+  );
 }
 
 function ProfilePage() {
@@ -27,6 +32,8 @@ function ProfilePage() {
 }
 
 function ProfileInfo() {
+  const user = useContext(UserContext);
+  console.log(user)
   return (
     <div className="border-b border-gray-900/10 pb-12">
       <h2 className="text-base font-semibold leading-7 text-gray-900">
@@ -57,6 +64,7 @@ function ProfileInfo() {
                 autoComplete="username"
                 className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                 placeholder="janesmith"
+                value={user.username}
               />
             </div>
           </div>
@@ -67,6 +75,7 @@ function ProfileInfo() {
 }
 
 function PersonalInfo() {
+  const user = useContext(UserContext);
   return (
     <div className="border-b border-gray-900/10 pb-12">
       <h2 className="text-base font-semibold leading-7 text-gray-900">
@@ -91,6 +100,7 @@ function PersonalInfo() {
               id="first-name"
               autoComplete="given-name"
               className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              value={user.firstName}
             />
           </div>
         </div>
@@ -109,6 +119,7 @@ function PersonalInfo() {
               id="last-name"
               autoComplete="family-name"
               className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              value={user.lastName}
             />
           </div>
         </div>
@@ -127,6 +138,7 @@ function PersonalInfo() {
               type="email"
               autoComplete="email"
               className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              value={user.emailAddress}
             />
           </div>
         </div>
