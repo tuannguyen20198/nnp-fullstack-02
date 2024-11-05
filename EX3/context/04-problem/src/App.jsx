@@ -1,15 +1,20 @@
+import React, { createContext, useContext } from "react";
+
+const SessionContext = createContext(null);
 export default function App() {
   const session = { name: "Alex Brown", initials: "AB" };
 
   return (
-    <div className="bg-white">
-      <Header session={session} />
-      <Hero />
-    </div>
+    <SessionContext.Provider value={session}>
+      <div className="bg-white">
+        <Header/>
+        <Hero />
+      </div>
+    </SessionContext.Provider>
   );
 }
 
-function Header({ session }) {
+function Header() {
   return (
     <header className="absolute inset-x-0 top-0 z-50">
       <nav
@@ -17,13 +22,14 @@ function Header({ session }) {
         aria-label="Global"
       >
         <Logo />
-        <Avatar session={session} />
+        <Avatar/>
       </nav>
     </header>
   );
 }
 
-function Avatar({ session }) {
+function Avatar() {
+  const session =useContext(SessionContext)
   return (
     <div className="items-center space-x-2 flex lg:flex-1 lg:justify-end">
       <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-500">
